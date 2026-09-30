@@ -17,6 +17,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: pip
       - run: python -m pip install --upgrade pip
+      - run: python -m pip install "msdataqc @ git+https://github.com/CedricConday/msdataqc"  # sibling package, until it is on PyPI
       - run: python -m pip install -e ".[dev]"
       - run: python -m ruff check .
       - run: python -m pytest -q
